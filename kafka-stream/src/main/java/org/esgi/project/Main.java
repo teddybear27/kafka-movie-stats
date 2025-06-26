@@ -1,13 +1,16 @@
-package org.esgi.project.java;
+package org.esgi.project;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsConfig;
-import org.esgi.project.java.streaming.StreamProcessing;
+import org.esgi.project.streaming.StreamProcessing;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Properties;
 
+@SpringBootApplication
 public class Main {
     private static final String applicationName = "stream-processing";
 
@@ -25,7 +28,7 @@ public class Main {
         }
 
         // TODO: write and instantiate some HTTP server with which you're comfortable with
-        System.out.println("Hello World!");
+		SpringApplication.run(Main.class, args);
     }
 
     public static Properties buildProperties() {

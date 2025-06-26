@@ -1,4 +1,4 @@
-package org.esgi.project.java.streaming;
+package org.esgi.project.streaming;
 
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.Topology;
