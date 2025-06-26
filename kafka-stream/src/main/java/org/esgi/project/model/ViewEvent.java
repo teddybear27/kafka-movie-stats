@@ -1,4 +1,4 @@
-package org.esgi.project.java.model;
+package org.esgi.project.model;
 
 public class ViewEvent {
     public int id;
