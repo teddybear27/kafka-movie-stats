@@ -1,4 +1,4 @@
-package org.esgi.project.java.serde;
+package org.esgi.project.serde;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.serialization.Deserializer;

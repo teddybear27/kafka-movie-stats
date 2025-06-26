@@ -6,13 +6,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.http.ResponseEntity;
+import org.apache.kafka.streams.KafkaStreams;
+import org.apache.kafka.streams.StreamsConfig;
 import java.util.List;
+
+import org.esgi.project.model.StreamProcessing;
+
 
 @RestController
 @RequestMapping("/")
 public class MovieController {
-	@Autowired
-	private MovieKafkaConsumer service; // TO CHANGE with the right class name/path
+	KafkaStreams streams;
+
+    public MovieController() {
+		StreamProcessing streamProcessing = new StreamProcessing();
+
+        streams = new KafkaStreams(streamProcessing.buildTopology(), buildProperties());
+        streams.setUncaughtExceptionHandler(Exception -> {
+            streams.close();
+            streams.cleanUp();
+            return null;
+        });
+        streams.start();
+	}
 
 	@GetMapping("movies/{id}")
 	public ResponseEntity<Movie> getMovie(@PathVariable String id) {
@@ -21,7 +37,16 @@ public class MovieController {
 
 	@GetMapping("stats/ten/best/score")
 	public List<Movie> bestScore() {
-		return service.getTopByScore(true);
+		streams.store("name").get().toJson();
+		// récupérer le store
+		// le requêter
+		// le convertir
+
+		// créer une classe Movie avec juste les attributs attendus en sortie d'API
+		// return une liste de ça suffit.
+
+
+		return list(Movie);
 	}
 
 	@GetMapping("stats/ten/worst/score")

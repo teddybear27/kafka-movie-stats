@@ -1,11 +1,11 @@
-package org.esgi.project.java.tools;
+package org.esgi.project.tools;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.esgi.project.java.model.ViewEvent;
+import org.esgi.project.model.ViewEvent;
 
 import java.util.Properties;
 

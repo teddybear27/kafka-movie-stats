@@ -1,9 +1,9 @@
-package org.esgi.project.java.tools;
+package org.esgi.project.tools;
 
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.state.QueryableStoreTypes;
 import org.apache.kafka.streams.state.ReadOnlyKeyValueStore;
-import org.esgi.project.java.model.ViewStats;
+import org.esgi.project.model.ViewStats;
 
 // Cette méthode peut être appelée depuis votre Main après stream.start()
 public class StorePrinter {

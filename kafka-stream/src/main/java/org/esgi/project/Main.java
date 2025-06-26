@@ -14,23 +14,7 @@ public class Main {
     private static final String applicationName = "stream-processing";
 
     public static void main(String[] args) {
-        StreamProcessing streamProcessing = new StreamProcessing();
 
-        /*try (KafkaStreams streams = new KafkaStreams(streamProcessing.buildTopology(), buildProperties())) {
-            streams.setUncaughtExceptionHandler(Exception -> {
-                streams.close();
-                streams.cleanUp();
-                return null;
-            });
-            streams.start();
-        }*/
-        KafkaStreams streams = new KafkaStreams(streamProcessing.buildTopology(), buildProperties());
-        streams.setUncaughtExceptionHandler(Exception -> {
-            streams.close();
-            streams.cleanUp();
-            return null;
-        });
-        streams.start();
 
         // Pour garder l'application active
         Runtime.getRuntime().addShutdownHook(new Thread(streams::close));
