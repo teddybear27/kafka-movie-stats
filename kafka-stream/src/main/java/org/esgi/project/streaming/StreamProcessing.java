@@ -51,7 +51,7 @@ public class StreamProcessing {
                         },
                         Materialized.<String, ViewStats, KeyValueStore<Bytes, byte[]>>as(storeViewStats)
                             .withKeySerde(Serdes.String())
-                            .withValueSerde(viewStatsSerde);
+                            .withValueSerde(viewStatsSerde)
                 );
 
         KTable<String, LikeStats> moveLikeStats = likeStream
@@ -68,7 +68,7 @@ public class StreamProcessing {
                         },
                         Materialized.<String, LikeStats, KeyValueStore<Bytes, byte[]>>as(storeLikeStats)
                             .withKeySerde(Serdes.String())
-                            .withValueSerde(likeStatsSerde);
+                            .withValueSerde(likeStatsSerde)
                 );
 
 
@@ -87,7 +87,7 @@ public class StreamProcessing {
                         },
                         Materialized.<String, ViewStats, KeyValueStore<Bytes, byte[]>>as(storeViewStatsWindowed)
                             .withKeySerde(Serdes.String())
-                            .withValueSerde(viewStatsSerde);
+                            .withValueSerde(viewStatsSerde)
                 );
 
 
