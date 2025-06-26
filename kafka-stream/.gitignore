@@ -50,3 +50,4 @@ cmake-build-*/
 out/
 
 target
+kafka-stream/src/main/java/org/esgi/project/java/tools
