@@ -2,6 +2,7 @@ package org.esgi.project.model;
 
 public class ViewStats {
     public int id;
+    public String title;
     public int start_only = 0;
     public int half = 0;
     public int full = 0;
